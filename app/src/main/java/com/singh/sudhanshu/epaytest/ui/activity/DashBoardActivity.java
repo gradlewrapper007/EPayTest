@@ -23,7 +23,6 @@ import com.singh.sudhanshu.epaytest.utils.ToastUtil;
 import com.singh.sudhanshu.epaytest.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.List;
 
 import butterknife.BindView;
@@ -44,6 +43,7 @@ public class DashBoardActivity extends AppCompatActivity {
     private TransactionAdapter mAdapter;
     private LinearLayoutManager layoutManager;
     private List<Product> transactionList = new ArrayList<>();
+    double mBalance = 0.0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -83,6 +83,7 @@ public class DashBoardActivity extends AppCompatActivity {
             public void onSuccess(Object data) {
 
                 Balance balance = ((Balance) data);
+                mBalance = Double.parseDouble(balance.getBalance());
                 mTvBalance.setText(Utils.getCurrencySymbol(balance.getCurrency()) + " " + balance.getBalance());
 
             }
@@ -115,7 +116,7 @@ public class DashBoardActivity extends AppCompatActivity {
     void fabClick() {
 
         AddSpendDialog dialog = new AddSpendDialog();
-        dialog.registerCallback(new AppCallback() {
+        dialog.addData(new AppCallback() {
             @Override
             public void onSuccess(Object data) {
                 fetchTransactions();
@@ -126,7 +127,7 @@ public class DashBoardActivity extends AppCompatActivity {
             public void onFailure(Object data) {
 
             }
-        });
+        }, mBalance);
         dialog.show(getSupportFragmentManager(), "spend_diag");
     }
 
