@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_window_background">
+
+        <TextView
+            android:id="@+id/dialog_spend_title"
+            style="@style/GreyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorAccent"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/spacing_normal"
+            android:text="Add Transaction"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_big" />
+
+        <RelativeLayout
+            android:id="@+id/dialog_spend_data_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_spend_title"
+            android:background="@color/white"
+            android:padding="@dimen/spacing_tiny_x">
+
+            <LinearLayout
+                android:id="@+id/dialog_spend_amt_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/login_sp_team"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny_x"
+                    android:layout_weight="4"
+                    android:minHeight="@dimen/spacing_huge" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="2" />
+
+                <!--Amount text-->
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/dialog_spend_amt_til"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny_x"
+                    android:layout_weight="4"
+                    android:hint="Amount">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/dialog_spend_amt_acet"
+                        style="@style/EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="3"
+                        android:inputType="numberDecimal"
+                        android:maxLines="6"
+                        android:scrollbars="vertical" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+            <!--Desc text-->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/dialog_spend_desc_til"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dialog_spend_amt_view"
+                android:layout_marginTop="@dimen/spacing_tiny_x"
+                android:hint="Enter description">
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/dialog_spend_desc_acet"
+                    style="@style/EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="3"
+                    android:gravity="start|left"
+                    android:maxLines="6"
+                    android:minHeight="@dimen/spacing_100"
+                    android:scrollbars="vertical" />
+
+            </android.support.design.widget.TextInputLayout>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/dialog_spend_btn_submit"
+            style="@style/ButtonFlat"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/dialog_spend_data_view"
+            android:layout_marginTop="@dimen/spacing_tiny_x"
+            android:text="Add Spend"
+            android:textColor="@color/blue_demo"
+            tools:ignore="RtlHardcoded" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/dialog_spend_btn_cancel"
+            style="@style/ButtonFlat"
+            android:layout_alignTop="@id/dialog_spend_btn_submit"
+            android:layout_toLeftOf="@id/dialog_spend_btn_submit"
+            android:layout_toStartOf="@id/dialog_spend_btn_submit"
+            android:text="Nevermind"
+            tools:ignore="RtlHardcoded" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

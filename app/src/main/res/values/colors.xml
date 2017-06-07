@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!--Unknown color shades-->
+    <color name="facebook">#3b5998</color>
+    <color name="facebook_pressed">#8b9dc3</color>
+    <color name="twitter">#FF5BAAF4</color>
+    <color name="twitter_pressed">#FF4186C8</color>
+    <color name="login_text_blue">#3B5A95</color>
+
+    <color name="green">#24991e</color>
+    <color name="catalog_light_bg">#DADBE0</color>
+
+    <color name="black">@android:color/black</color>
+    <color name="white">@android:color/white</color>
+    <color name="color_window_background">#EEEEEE</color>
+
+    <color name="red">#ff0000</color>
+    <color name="blue">#0000ff</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="catalog_bg">#0579b9</color>
+
+    <color name="col_switch_off">#9E9E9E</color>
+
+    <color name="orange">#c45e20</color>
+    <color name="gray">#5c5c5c</color>
+    <color name="gray_font">#555555</color>
+    <color name="dark_gray">#333333</color>
+    <color name="light_gray">#e1e1e1</color>
+    <color name="light_gray_1">#cacaca</color>
+    <color name="sky_blue">#1e7fa9</color>
+
+    <!--General colors-->
+    <color name="divider">#d5d5d5</color>
+    <color name="secondary_text">#9E9E9E</color>
+    <color name="secondary_text_darker">#4e4e4e</color>
+    <color name="snaplion_orange">#ff8000</color>
+    <color name="black_transparent">#33000000</color>
+    <color name="black_transparent_darker">#99000000</color>
+    <color name="black_transparent_new">#33000000</color>
+    <color name="black_tpt">#66000000</color>
+
+    <!--Add GREENS here-->
+    <color name="green_500">#4caf50</color>
+
+    <!--Add Oranges here-->
+    <color name="oranges_500">#FF9800</color>
+
+    <!--Add REDS here-->
+    <color name="red_500">#F44336</color>
+    <!--Add Blues Here-->
+
+    <!--Add Greys Here-->
+    <color name="grey_400">#BDBDBD</color>
+    <color name="grey_500">#9E9E9E</color>
+    <color name="grey_700">#616161</color>
+</resources>

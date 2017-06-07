@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/row_spend_contnr"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardBackgroundColor="@color/red"
+    card_view:cardPreventCornerOverlap="false"
+    card_view:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="@dimen/spacing_normal"
+        android:layout_marginStart="@dimen/spacing_normal"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        tools:ignore="RtlHardcoded">
+
+        <TextView
+            style="@style/TextViewStylable"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/grey_500"
+            android:gravity="center_vertical"
+            android:padding="@dimen/spacing_tiny_x"
+            android:text="$ 128"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_large" />
+
+        <TextView
+            android:id="@+id/row_spend_title"
+            style="@style/TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_tiny_x"
+            android:text="Purcahsed Google Pixel"
+            android:textSize="@dimen/font_normal" />
+
+        <TextView
+            android:id="@+id/row_spend_time"
+            style="@style/GreyTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/row_spend_title"
+            android:layout_below="@id/row_spend_title"
+            android:text="dec 12, 2017"
+            android:textSize="@dimen/spacing_small"
+            android:textStyle="italic" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
