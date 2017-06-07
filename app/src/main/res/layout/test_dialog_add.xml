@@ -109,7 +109,7 @@
             android:layout_below="@id/dialog_spend_data_view"
             android:layout_marginTop="@dimen/spacing_tiny_x"
             android:text="Add Spend"
-            android:textColor="@color/blue_demo"
+            android:textColor="@color/colorAccent"
             tools:ignore="RtlHardcoded" />
 
         <android.support.v7.widget.AppCompatButton

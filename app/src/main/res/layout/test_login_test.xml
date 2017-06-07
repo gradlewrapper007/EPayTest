@@ -55,7 +55,7 @@
         <!--android:hint="Password">-->
 
         <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/login_pass_acet"
+            android:id="@+id/pass_acet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_normal"
@@ -68,7 +68,6 @@
         </android.support.v7.widget.AppCompatEditText>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/login_btn_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

@@ -39,6 +39,11 @@
         <item name="android:fontFamily">sans-serif</item>
     </style>
 
+    <!--This is the style for the Label of an individual views-->
+    <style name="TextViewItemLabel" parent="SettingsLabelTextView">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
     <!--Big button-->
     <style name="ButtonBig" parent="Widget.AppCompat.Button.Borderless.Colored">
         <item name="android:layout_height">wrap_content</item>

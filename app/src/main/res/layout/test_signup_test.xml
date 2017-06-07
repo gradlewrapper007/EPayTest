@@ -14,13 +14,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#dd1a237e" />
+        android:background="#dd9c27b0" />
 
     <!--Main View-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:orientation="vertical"
         android:padding="@dimen/spacing_normal">
 
@@ -31,7 +30,6 @@
         <!--android:hint="Your Email">-->
 
         <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/login_id_acet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -55,7 +53,6 @@
         <!--android:hint="Password">-->
 
         <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/login_pass_acet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_normal"
@@ -67,55 +64,41 @@
 
         </android.support.v7.widget.AppCompatEditText>
 
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:background="@drawable/test_shape_acet"
+            android:hint="Confirm Password"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:padding="@dimen/spacing_tiny_x">
+
+        </android.support.v7.widget.AppCompatEditText>
+        <!--</android.support.design.widget.TextInputLayout>-->
+
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/login_btn_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             app:fabSize="normal" />
 
-        <!--</android.support.design.widget.TextInputLayout>-->
-
-
     </LinearLayout>
 
-    <!--Bottom layout-->
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <TextView
+        android:id="@+id/signup_btn"
+        style="@style/TextViewStylable"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_marginBottom="@dimen/spacing_normal"
-        tools:ignore="RtlHardcoded">
-
-        <TextView
-            android:id="@+id/gplus_btn"
-            style="@style/TextViewStylable"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/spacing_tiny_x"
-            android:layout_marginRight="@dimen/spacing_tiny_x"
-            android:background="@drawable/test_g_circle"
-            android:gravity="center"
-            android:padding="@dimen/spacing_normal"
-            android:text="G+"
-            android:textColor="@color/white"
-            android:textSize="@dimen/font_big" />
-
-        <TextView
-            android:id="@+id/signup_btn"
-            style="@style/TextViewStylable"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/gplus_btn"
-            android:layout_toRightOf="@id/gplus_btn"
-            android:background="@drawable/test_signup_badge_rght"
-            android:padding="@dimen/spacing_big_x"
-            android:text="or SIGNUP"
-            android:textColor="@color/white"
-            android:textSize="@dimen/font_big" />
-
-
-    </RelativeLayout>
+        android:layout_toEndOf="@id/gplus_btn"
+        android:layout_toRightOf="@id/gplus_btn"
+        android:background="@drawable/test_signup_badge_lft"
+        android:padding="@dimen/spacing_big_x"
+        android:text="or SIGNUP"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_big" />
 
 
 </RelativeLayout>
