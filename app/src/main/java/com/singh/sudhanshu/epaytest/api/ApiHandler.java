@@ -57,7 +57,7 @@ public class ApiHandler {
             public void onFailure(Object data) {
                 callback.onFailure(null);
             }
-        }, true);
+        }, true, null);
     }
 
     /**
@@ -122,11 +122,15 @@ public class ApiHandler {
      * @param callback
      * @param isLogin
      */
-    public static void postRequest(Context ctx, final String url, final AppCallback callback, final boolean isLogin) {
+    public static void postRequest(Context ctx, final String url, final AppCallback callback, final boolean isLogin,
+                                   JSONObject params) {
         RequestQueue queue = Volley.newRequestQueue(ctx);
 
         // Request a string response from the provided URL.
-        JSONObject params = new JSONObject();
+        if (params == null) {
+            params = new JSONObject();
+        }
+
         try {
             params.put("Accept", "application/json");
             params.put("Content-Type", "application/json");

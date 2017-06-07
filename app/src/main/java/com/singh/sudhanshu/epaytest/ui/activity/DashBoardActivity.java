@@ -25,12 +25,12 @@ public class DashBoardActivity extends AppCompatActivity {
     @BindView(R.id.dash_tv_blance)
     TextView mTvBalance;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         ButterKnife.bind(this);
-
 
         ApiHandler.fetchBalance(this, new AppCallback() {
             @Override
@@ -50,12 +50,13 @@ public class DashBoardActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.dash_btn_fab)
-    void callAPI() {
+    void fabClick() {
+
         AddSpendDialog dialog = new AddSpendDialog();
         dialog.registerCallback(new AppCallback() {
             @Override
             public void onSuccess(Object data) {
-
+                    //refreshAPI()
             }
 
             @Override
@@ -65,6 +66,5 @@ public class DashBoardActivity extends AppCompatActivity {
         });
         dialog.show(getSupportFragmentManager(), "spend_diag");
     }
-
 
 }

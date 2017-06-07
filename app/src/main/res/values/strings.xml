@@ -13,4 +13,21 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <array name="currencyArray">
+        <item>Currency</item>
+        <item>INR ₹</item>
+        <item>USD $</item>
+        <item>GBP £</item>
+        <item>BTC ฿</item>
+    </array>
+
+    <array name="codesArray">
+        <item>currency</item>
+        <item>inr</item>
+        <item>usd</item>
+        <item>gbp</item>
+        <item>xbt</item>
+    </array>
+
 </resources>
