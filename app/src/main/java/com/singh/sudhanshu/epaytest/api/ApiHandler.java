@@ -164,12 +164,12 @@ public class ApiHandler {
             params = new JSONObject();
         }
 
-        try {
-            params.put("Accept", "application/json");
-            params.put("Content-Type", "application/json");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            params.put("Accept", "application/json");
+//            params.put("Content-Type", "application/json");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
 
         Log.i(TAG, "url: " + url);
         Log.i(TAG, "params: " + params.toString());

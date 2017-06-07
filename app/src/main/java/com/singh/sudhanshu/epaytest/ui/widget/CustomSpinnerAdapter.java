@@ -12,7 +12,7 @@ import com.singh.sudhanshu.epaytest.R;
 
 
 /**
- * Created by Sudhanshu on 03-Feb-17.
+ * Created by Sudhanshu on 07/06/17.
  */
 
 public class CustomSpinnerAdapter extends ArrayAdapter<String> {

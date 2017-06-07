@@ -25,9 +25,8 @@ import android.widget.ImageView;
 
 import com.singh.sudhanshu.epaytest.R;
 
-
 /**
- * Created by Sudhanshu on 28/06/16.
+ * Created by Sudhanshu on 07/06/17.
  */
 public class RoundImageView extends ImageView {
     // For logging purposes

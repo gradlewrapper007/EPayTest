@@ -22,6 +22,7 @@ import com.singh.sudhanshu.epaytest.api.ApiHandler;
 import com.singh.sudhanshu.epaytest.ui.activity.AppCallback;
 import com.singh.sudhanshu.epaytest.utils.Constants;
 import com.singh.sudhanshu.epaytest.utils.ToastUtil;
+import com.singh.sudhanshu.epaytest.utils.Utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,9 +32,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by Sudhanshu on 08/05/17.
+ * Created by Sudhanshu on 06/06/17.
  */
-
 public class AddSpendDialog extends android.support.v4.app.DialogFragment {
     private Context mContext;
     private AppCallback mCallback;
@@ -146,7 +146,7 @@ public class AddSpendDialog extends android.support.v4.app.DialogFragment {
         try {
             params.put(Constants.PARAM_AMOUNT, mAcetAmount.getText().toString().trim());
             params.put(Constants.PARAM_CURRENCY, currencyCode);
-            params.put(Constants.PARAM_DATE, System.currentTimeMillis());
+            params.put(Constants.PARAM_DATE, Utils.getISO8601StringForCurrentDate());
             params.put(Constants.PARAM_DESCRIPTION, mAcetDescription.getText().toString().trim());
         } catch (JSONException e) {
             e.printStackTrace();
@@ -167,7 +167,13 @@ public class AddSpendDialog extends android.support.v4.app.DialogFragment {
 
             @Override
             public void onFailure(Object data) {
-                ToastUtil.showSmallToast(mContext, "failed!");
+                if (mCallback != null) {
+                    //send bundle here
+                    mCallback.onSuccess(null);
+                    mCallback = null;
+                }
+                ToastUtil.showSmallToast(mContext, "Success!");
+                AddSpendDialog.this.dismiss();
             }
         }, false, params);
 

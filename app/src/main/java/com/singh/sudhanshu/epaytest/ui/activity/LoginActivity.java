@@ -12,6 +12,7 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -33,11 +34,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by Sudhanshu on 6/7/2017.
+ * Created by Sudhanshu on 05/06/17.
  */
-
 public class LoginActivity extends AppCompatActivity {
 
+    private final String TAG = LoginActivity.class.getSimpleName();
     @BindView(R.id.login_id_acet)
     AppCompatEditText mAcetLogin;
     @BindView(R.id.image_xformer)
@@ -52,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         if (!TextUtils.isEmpty(PreferenceUtil.getInstance().getStringValue(Constants.PREF_TOKEN, null))) {
 
+            Log.i(TAG, "onCreate: token" + (PreferenceUtil.getInstance().getStringValue(Constants.PREF_TOKEN, null)));
             launchDash();
 
         } else {
@@ -77,11 +79,12 @@ public class LoginActivity extends AppCompatActivity {
     @OnClick(R.id.login_btn_fab)
     void callAPI() {
         String email = mAcetLogin.getText().toString().trim();
-        if (!TextUtils.isEmpty(email)
-                && !Utils.isValidEmail(email, this)) {
+        if (TextUtils.isEmpty(email)
+                || !Utils.isValidEmail(email, this)) {
             ToastUtil.showLongToast(this, R.string.error_msg_invalidemail);
             return;
         }
+        mBtnFab.setEnabled(false);
         ApiHandler.fetchTokenAndSaveIfNull(this, new AppCallback() {
             @Override
             public void onSuccess(Object data) {

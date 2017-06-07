@@ -1,19 +1,18 @@
 package com.singh.sudhanshu.epaytest.utils;
 
 import android.app.Activity;
-import android.text.format.DateUtils;
 import android.util.Log;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
 /**
- * Created by Sudhanshu on 6/7/2017.
+ * Created by Sudhanshu on 05/06/17.
  */
 
 public class Utils {
@@ -34,6 +33,18 @@ public class Utils {
             ret = android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
         }
         return ret;
+    }
+
+    /**
+     * returns the Currency symbol based on Standard codes
+     *
+     * @param code
+     * @return
+     */
+    public static String getCurrencySymbol(String code) {
+
+        Currency currency = Currency.getInstance(code);
+        return currency.getSymbol();
     }
 
     public static String fromISO8601UTC(String dateStr) {
@@ -71,8 +82,8 @@ public class Utils {
      * @return String with format "yyyy-MM-dd'T'HH:mm:ss'Z'"
      */
     private static String getISO8601StringForDate(Date date) {
-        DateFormat dateFormat = new SimpleDateFormat("dd-MMM-dd'T'HH:mm:ss'Z'", Locale.US);
-        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
+        dateFormat.setTimeZone(TimeZone.getTimeZone("IST"));
         return dateFormat.format(date);
     }
 

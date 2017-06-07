@@ -31,7 +31,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by Sudhanshu on 07/06/17.
+ * Created by Sudhanshu on 05/06/17.
  */
 
 public class DashBoardActivity extends AppCompatActivity {
@@ -83,8 +83,7 @@ public class DashBoardActivity extends AppCompatActivity {
             public void onSuccess(Object data) {
 
                 Balance balance = ((Balance) data);
-                Currency currency = Currency.getInstance(balance.getCurrency());
-                mTvBalance.setText(currency.getSymbol() + " " + balance.getBalance());
+                mTvBalance.setText(Utils.getCurrencySymbol(balance.getCurrency()) + " " + balance.getBalance());
 
             }
 
@@ -185,7 +184,7 @@ public class DashBoardActivity extends AppCompatActivity {
             Product model = mList.get(position);
             holder.mTvTitle.setText(model.getDescription());
             holder.mTvTime.setText(Utils.fromISO8601UTC(model.getDate()));
-            holder.mTvAmt.setText(model.getAmount());
+            holder.mTvAmt.setText(Utils.getCurrencySymbol(model.getCurrency()) + " " + model.getAmount());
 
         }
 
