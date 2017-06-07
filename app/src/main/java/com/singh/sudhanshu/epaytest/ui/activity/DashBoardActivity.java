@@ -184,7 +184,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
             Product model = mList.get(position);
             holder.mTvTitle.setText(model.getDescription());
-            holder.mTvTime.setText("on " + Utils.fromISO8601UTC(model.getDate()));
+            holder.mTvTime.setText(Utils.fromISO8601UTC(model.getDate()));
             holder.mTvAmt.setText(model.getAmount());
 
         }

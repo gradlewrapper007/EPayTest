@@ -42,7 +42,7 @@ public class Utils {
         inputFormat.setTimeZone(tz);
         try {
             Date parsed = inputFormat.parse(dateStr);
-            DateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm a", Locale.US);
+            DateFormat outputFormat = new SimpleDateFormat("MMM\ndd", Locale.US);
             outputFormat.setTimeZone(tz);
             Log.i("eeee", "fromISO8601UTC: " + outputFormat.format(parsed));
             return outputFormat.format(parsed);
@@ -71,7 +71,7 @@ public class Utils {
      * @return String with format "yyyy-MM-dd'T'HH:mm:ss'Z'"
      */
     private static String getISO8601StringForDate(Date date) {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
+        DateFormat dateFormat = new SimpleDateFormat("dd-MMM-dd'T'HH:mm:ss'Z'", Locale.US);
         dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         return dateFormat.format(date);
     }
