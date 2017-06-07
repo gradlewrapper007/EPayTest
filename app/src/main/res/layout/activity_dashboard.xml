@@ -12,6 +12,12 @@
         android:text="$400"
         android:textSize="@dimen/font_huge" />
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/dash_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/dash_tv_blance" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/dash_btn_fab"
         android:layout_width="wrap_content"

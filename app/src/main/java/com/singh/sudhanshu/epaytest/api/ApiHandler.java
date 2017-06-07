@@ -9,9 +9,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.singh.sudhanshu.epaytest.model.Balance;
+import com.singh.sudhanshu.epaytest.model.Product;
 import com.singh.sudhanshu.epaytest.ui.activity.AppCallback;
 import com.singh.sudhanshu.epaytest.utils.Constants;
 import com.singh.sudhanshu.epaytest.utils.PreferenceUtil;
@@ -19,7 +22,10 @@ import com.singh.sudhanshu.epaytest.utils.PreferenceUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -83,10 +89,11 @@ public class ApiHandler {
 
         Log.i(TAG, "url: " + url);
         Log.i(TAG, "params: " + params.toString());
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, params,
-                new Response.Listener<JSONObject>() {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(String response) {
                         Log.i(TAG, "onResponse: " + response);
                         callback.onSuccess(response);
                     }
@@ -96,7 +103,6 @@ public class ApiHandler {
                 Log.i(TAG, "onResponse: " + error.getMessage());
                 callback.onFailure(error.getMessage());
             }
-
         }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
@@ -110,8 +116,35 @@ public class ApiHandler {
             }
         };
 
+//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, params,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        Log.i(TAG, "onResponse: " + response);
+//                        callback.onSuccess(response);
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.i(TAG, "onResponse: " + error.getMessage());
+//                callback.onFailure(error.getMessage());
+//            }
+//
+//        }) {
+//            @Override
+//            public Map<String, String> getHeaders() throws AuthFailureError {
+//                Map<String, String> paramsMap = new HashMap<String, String>();
+//
+//                if (!isLogin) {
+//                    appendHeader(paramsMap);
+//                }
+//
+//                return paramsMap;
+//            }
+//        };
+
         // Add the request to the RequestQueue.
-        queue.add(request);
+        queue.add(stringRequest);
     }
 
     /**
@@ -193,11 +226,37 @@ public class ApiHandler {
             @Override
             public void onSuccess(Object data) {
 
-                JSONObject object = ((JSONObject) data);
                 Gson gson = new Gson();
-                Balance balance = gson.fromJson(object.toString(), Balance.class);
+                Balance balance = gson.fromJson(((String) data), Balance.class);
 
                 callback.onSuccess(balance);
+            }
+
+            @Override
+            public void onFailure(Object data) {
+
+            }
+        }, false);
+    }
+
+    /**
+     * Fetches the user transactions
+     *
+     * @param ctx
+     * @param callback
+     */
+    public static void fetchTransactions(Context ctx, final AppCallback callback) {
+
+        ApiHandler.getRequest(ctx, APIs.TRANSACTION_URL, new AppCallback() {
+            @Override
+            public void onSuccess(Object data) {
+
+                Gson gson = new Gson();
+                Type type = TypeToken.getParameterized(ArrayList.class, Product.class).getType();
+                List<Product> transactionList = gson.fromJson((String) data, type);
+
+                Log.d(TAG, "transaction: " + transactionList.size());
+                callback.onSuccess(transactionList);
             }
 
             @Override

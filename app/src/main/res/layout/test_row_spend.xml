@@ -21,6 +21,7 @@
         tools:ignore="RtlHardcoded">
 
         <TextView
+            android:id="@+id/row_spend_amt"
             style="@style/TextViewStylable"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
