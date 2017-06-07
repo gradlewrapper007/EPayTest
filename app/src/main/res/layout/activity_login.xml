@@ -54,18 +54,18 @@
         <!--android:layout_height="wrap_content"-->
         <!--android:hint="Password">-->
 
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/login_pass_acet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacing_normal"
-            android:background="@drawable/test_shape_acet"
-            android:hint="Password"
-            android:imeOptions="actionNext"
-            android:inputType="textPassword"
-            android:padding="@dimen/spacing_tiny_x">
+        <!--<android.support.v7.widget.AppCompatEditText-->
+            <!--android:id="@+id/login_pass_acet"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="@dimen/spacing_normal"-->
+            <!--android:background="@drawable/test_shape_acet"-->
+            <!--android:hint="Password"-->
+            <!--android:imeOptions="actionNext"-->
+            <!--android:inputType="textPassword"-->
+            <!--android:padding="@dimen/spacing_tiny_x">-->
 
-        </android.support.v7.widget.AppCompatEditText>
+        <!--</android.support.v7.widget.AppCompatEditText>-->
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/login_btn_fab"

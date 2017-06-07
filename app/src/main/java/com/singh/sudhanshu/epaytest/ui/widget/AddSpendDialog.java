@@ -1,6 +1,5 @@
 package com.singh.sudhanshu.epaytest.ui.widget;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
@@ -45,11 +44,9 @@ public class AddSpendDialog extends android.support.v4.app.DialogFragment {
     /**
      * @param callback onClick calback for actions.
      */
-    @SuppressLint("ValidFragment")
-    public AddSpendDialog(AppCallback callback) {
+    public void registerCallback(AppCallback callback) {
         this.mCallback = callback;
     }
-
 
     @Override
     public void onAttach(Context context) {
