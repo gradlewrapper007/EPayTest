@@ -46,6 +46,7 @@
 
     <!--Add GREENS here-->
     <color name="green_500">#4caf50</color>
+    <color name="green_500_tpt">#774caf50</color>
 
     <!--Add Oranges here-->
     <color name="oranges_500">#FF9800</color>

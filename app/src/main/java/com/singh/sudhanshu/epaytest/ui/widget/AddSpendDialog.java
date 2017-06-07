@@ -218,7 +218,7 @@ public class AddSpendDialog extends android.support.v4.app.DialogFragment {
             return false;
         }
 
-        if (TextUtils.isEmpty(amount.trim()) || Integer.parseInt(amount) < 0) {
+        if (TextUtils.isEmpty(amount.trim()) || Float.parseFloat(amount) < 0) {
             mTilAmt.setError("Invalid amount.");
             return false;
         } else {

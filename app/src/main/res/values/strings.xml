@@ -14,6 +14,14 @@
         completions."
     </string>
 
+    <string name="error_msg_logout">Uh Oh! Invalid session, Please Login Again!</string>
+    <string name="error_msg_invalidemail">Please enter a valid email address!</string>
+    <string name="error_msg_coming_soon">Feature coming Soon!</string>
+    <string name="msg_login_success">Login Success!</string>
+
+    <string name="or_signup">or SIGNUP</string>
+    <string name="gplus">G+</string>
+    <string name="hint_your_email">Your Email</string>
     <array name="currencyArray">
         <item>Currency</item>
         <item>INR ₹</item>
@@ -29,5 +37,6 @@
         <item>gbp</item>
         <item>xbt</item>
     </array>
+
 
 </resources>

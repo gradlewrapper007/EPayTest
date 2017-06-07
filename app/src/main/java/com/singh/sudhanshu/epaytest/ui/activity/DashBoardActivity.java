@@ -2,6 +2,7 @@ package com.singh.sudhanshu.epaytest.ui.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,8 @@ import com.singh.sudhanshu.epaytest.api.ApiHandler;
 import com.singh.sudhanshu.epaytest.model.Balance;
 import com.singh.sudhanshu.epaytest.model.Product;
 import com.singh.sudhanshu.epaytest.ui.widget.AddSpendDialog;
+import com.singh.sudhanshu.epaytest.utils.PreferenceUtil;
+import com.singh.sudhanshu.epaytest.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.Currency;
@@ -86,9 +89,16 @@ public class DashBoardActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Object data) {
-
+                LogoutUser();
             }
         });
+    }
+
+    private void LogoutUser() {
+        ToastUtil.showSmallToast(this, R.string.error_msg_logout);
+        PreferenceUtil.getInstance().clear();
+        startActivity(new Intent(DashBoardActivity.this, LoginActivity.class));
+        finishAffinity();
     }
 
     void setupRecycler() {

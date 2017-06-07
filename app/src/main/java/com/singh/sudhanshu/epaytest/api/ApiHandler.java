@@ -234,7 +234,7 @@ public class ApiHandler {
 
             @Override
             public void onFailure(Object data) {
-
+                callback.onFailure(null);
             }
         }, false);
     }

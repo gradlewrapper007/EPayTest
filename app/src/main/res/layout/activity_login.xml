@@ -7,14 +7,17 @@
     android:orientation="vertical">
 
     <!--Background-->
-    <ImageView
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:id="@+id/image_xformer"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <View
+    <RelativeLayout
+        android:id="@+id/reveal_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#dd1a237e" />
+        android:background="@color/green_500_tpt"
+        android:visibility="invisible" />
 
     <!--Main View-->
     <LinearLayout
@@ -38,7 +41,7 @@
             android:layout_marginBottom="@dimen/spacing_normal"
             android:background="@drawable/test_shape_acet"
             android:cursorVisible="false"
-            android:hint="Your Email"
+            android:hint="@string/hint_your_email"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
             android:padding="@dimen/spacing_tiny_x">
@@ -46,32 +49,12 @@
             <requestFocus />
         </android.support.v7.widget.AppCompatEditText>
 
-        <!--</android.support.design.widget.TextInputLayout>-->
-
-        <!--<android.support.design.widget.TextInputLayout-->
-        <!--android:id="@+id/pass_til"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:hint="Password">-->
-
-        <!--<android.support.v7.widget.AppCompatEditText-->
-            <!--android:id="@+id/login_pass_acet"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginBottom="@dimen/spacing_normal"-->
-            <!--android:background="@drawable/test_shape_acet"-->
-            <!--android:hint="Password"-->
-            <!--android:imeOptions="actionNext"-->
-            <!--android:inputType="textPassword"-->
-            <!--android:padding="@dimen/spacing_tiny_x">-->
-
-        <!--</android.support.v7.widget.AppCompatEditText>-->
-
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/login_btn_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_arrow_forward_white_24dp"
             app:fabSize="normal" />
 
         <!--</android.support.design.widget.TextInputLayout>-->
@@ -87,7 +70,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="@dimen/spacing_normal"
-        tools:ignore="RtlHardcoded">
+        android:paddingBottom="@dimen/spacing_normal"
+        android:paddingLeft="@dimen/spacing_normal"
+        android:paddingStart="@dimen/spacing_normal"
+        android:paddingTop="@dimen/spacing_normal"
+        tools:ignore="RtlHardcoded,RtlSymmetry">
 
         <TextView
             android:id="@+id/gplus_btn"
@@ -96,11 +83,13 @@
             android:layout_marginEnd="@dimen/spacing_tiny_x"
             android:layout_marginRight="@dimen/spacing_tiny_x"
             android:background="@drawable/test_g_circle"
+            android:elevation="@dimen/spacing_tiny_x"
             android:gravity="center"
             android:padding="@dimen/spacing_normal"
-            android:text="G+"
+            android:text="@string/gplus"
             android:textColor="@color/white"
-            android:textSize="@dimen/font_big" />
+            android:textSize="@dimen/font_big"
+            tools:targetApi="lollipop" />
 
         <TextView
             android:id="@+id/signup_btn"
@@ -109,10 +98,12 @@
             android:layout_toEndOf="@id/gplus_btn"
             android:layout_toRightOf="@id/gplus_btn"
             android:background="@drawable/test_signup_badge_rght"
+            android:elevation="@dimen/spacing_tiny_x"
             android:padding="@dimen/spacing_big_x"
-            android:text="or SIGNUP"
+            android:text="@string/or_signup"
             android:textColor="@color/white"
-            android:textSize="@dimen/font_big" />
+            android:textSize="@dimen/font_big"
+            tools:targetApi="lollipop" />
 
 
     </RelativeLayout>
