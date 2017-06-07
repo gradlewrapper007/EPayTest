@@ -22,6 +22,10 @@
     <string name="or_signup">or SIGNUP</string>
     <string name="gplus">G+</string>
     <string name="hint_your_email">Your Email</string>
+    <string name="current_balance">Current Balance</string>
+    <string name="hello_musky">Hello, Musky!</string>
+    <string name="dash">-</string>
+    <string name="transactions_lbl">Your transactions</string>
     <array name="currencyArray">
         <item>Currency</item>
         <item>INR ₹</item>

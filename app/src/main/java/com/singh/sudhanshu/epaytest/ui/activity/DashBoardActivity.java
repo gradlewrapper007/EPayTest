@@ -20,6 +20,7 @@ import com.singh.sudhanshu.epaytest.model.Product;
 import com.singh.sudhanshu.epaytest.ui.widget.AddSpendDialog;
 import com.singh.sudhanshu.epaytest.utils.PreferenceUtil;
 import com.singh.sudhanshu.epaytest.utils.ToastUtil;
+import com.singh.sudhanshu.epaytest.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Currency;
@@ -49,7 +50,7 @@ public class DashBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         ButterKnife.bind(this);
-
+        getSupportActionBar().hide();
         setupRecycler();
         fetchBalance();
         fetchTransactions();
@@ -183,8 +184,9 @@ public class DashBoardActivity extends AppCompatActivity {
 
             Product model = mList.get(position);
             holder.mTvTitle.setText(model.getDescription());
-            holder.mTvTime.setText(model.getDate());
+            holder.mTvTime.setText("on " + Utils.fromISO8601UTC(model.getDate()));
             holder.mTvAmt.setText(model.getAmount());
+
         }
 
         @Override

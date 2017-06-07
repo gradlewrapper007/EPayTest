@@ -5,18 +5,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/dash_tv_blance"
-        style="@style/TextViewStylable"
-        android:layout_centerHorizontal="true"
-        android:text="$400"
-        android:textSize="@dimen/font_huge" />
+    <RelativeLayout
+        android:id="@+id/dash_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_172"
+        android:background="@color/colorPrimary"
+        android:elevation="@dimen/spacing_tiny_x"
+        tools:targetApi="lollipop">
 
+        <com.singh.sudhanshu.epaytest.ui.widget.RoundImageView
+            android:id="@+id/dash_user_img"
+            android:layout_width="@dimen/spacing_huge"
+            android:layout_height="@dimen/spacing_huge"
+            android:layout_margin="@dimen/spacing_tiny_x"
+            android:src="@drawable/elon_port" />
+
+        <TextView
+            android:id="@+id/dash_user_name"
+            style="@style/TextView"
+            android:layout_alignBottom="@id/dash_user_img"
+            android:layout_alignTop="@id/dash_user_img"
+            android:layout_centerHorizontal="true"
+            android:layout_toEndOf="@id/dash_user_img"
+            android:layout_toRightOf="@id/dash_user_img"
+            android:gravity="center_vertical"
+            android:text="@string/hello_musky"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_normal"
+            android:textStyle="italic"
+            tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/dash_tv_blance"
+            style="@style/TextViewStylable"
+            android:layout_below="@id/dash_user_img"
+            android:layout_centerHorizontal="true"
+            android:text="@string/dash"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_huge" />
+
+        <TextView
+            style="@style/TextViewStylable"
+            android:layout_below="@id/dash_tv_blance"
+            android:layout_centerHorizontal="true"
+            android:text="@string/current_balance"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_small"
+            tools:ignore="RtlHardcoded" />
+
+    </RelativeLayout>
+
+    <!--Headers LBL-->
+    <TextView
+        android:id="@+id/dash_list_header"
+        style="@style/TextViewStylable"
+        android:layout_width="match_parent"
+        android:layout_below="@id/dash_header"
+        android:layout_centerHorizontal="true"
+        android:background="@color/grey_400"
+        android:elevation="@dimen/spacing_tiny_x"
+        android:padding="@dimen/spacing_tiny_x"
+        android:text="@string/transactions_lbl"
+        android:textAllCaps="true"
+        android:textColor="@color/grey_700"
+        android:textSize="@dimen/font_normal"
+        tools:ignore="RtlHardcoded"
+        tools:targetApi="lollipop" />
+
+    <!--List-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/dash_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/dash_tv_blance" />
+        android:layout_below="@id/dash_list_header" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/dash_btn_fab"
