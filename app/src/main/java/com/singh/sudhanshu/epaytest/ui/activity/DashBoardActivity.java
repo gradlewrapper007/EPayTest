@@ -53,7 +53,9 @@ public class DashBoardActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         getSupportActionBar().hide();
         setupRecycler();
+        //fetch balance
         fetchBalance();
+        //fetch the list
         fetchTransactions();
     }
 
@@ -97,6 +99,9 @@ public class DashBoardActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Logs user out, clears tokens
+     */
     private void LogoutUser() {
         ToastUtil.showSmallToast(this, R.string.error_msg_logout);
         PreferenceUtil.getInstance().clear();
@@ -104,6 +109,9 @@ public class DashBoardActivity extends AppCompatActivity {
         finishAffinity();
     }
 
+    /**
+     * Setup recycler view(the List)
+     */
     void setupRecycler() {
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         layoutManager.setReverseLayout(true);
@@ -115,6 +123,9 @@ public class DashBoardActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    /**
+     * OPens the Spend dialog
+     */
     @OnClick(R.id.dash_btn_fab)
     void fabClick() {
 
@@ -122,6 +133,7 @@ public class DashBoardActivity extends AppCompatActivity {
         dialog.addData(new AppCallback() {
             @Override
             public void onSuccess(Object data) {
+                //reload the data
                 mAdapter.clear(new ArrayList<Product>());
                 fetchTransactions();
                 fetchBalance();
@@ -135,6 +147,9 @@ public class DashBoardActivity extends AppCompatActivity {
         dialog.show(getSupportFragmentManager(), "spend_diag");
     }
 
+    /**
+     * Adapter class for the list items
+     */
     private static class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.TransactionRowItemholder> {
 
         private List<Product> mList;
@@ -212,7 +227,7 @@ public class DashBoardActivity extends AppCompatActivity {
     }
 
     /**
-     * Shjows a meter like animation on TextView
+     * Shows a meter like animation on TextView
      *
      * @param balance
      */

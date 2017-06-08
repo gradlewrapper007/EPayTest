@@ -56,14 +56,26 @@
             <requestFocus />
         </android.support.v7.widget.AppCompatEditText>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/login_btn_fab"
+        <com.github.jorgecastilloprz.FABProgressCircle
+            android:id="@+id/fabProgressCircle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spacing_huge"
-            android:src="@drawable/ic_arrow_forward_white_24dp"
-            app:fabSize="normal" />
+            app:arcColor="@color/green_500"
+            app:arcWidth="@dimen/spacing_micro"
+            app:finalIcon="@drawable/ic_done_white_24dp"
+            app:reusable="true">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/login_btn_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_forward_white_24dp"
+                app:fabSize="normal"
+                app:useCompatPadding="true" />
+
+        </com.github.jorgecastilloprz.FABProgressCircle>
 
         <!--</android.support.design.widget.TextInputLayout>-->
 
@@ -91,7 +103,6 @@
             android:layout_marginEnd="@dimen/spacing_tiny_x"
             android:layout_marginRight="@dimen/spacing_tiny_x"
             android:background="@drawable/test_g_circle"
-            android:elevation="@dimen/spacing_tiny_x"
             android:gravity="center"
             android:padding="@dimen/spacing_normal"
             android:text="@string/gplus"
@@ -106,7 +117,6 @@
             android:layout_toEndOf="@id/gplus_btn"
             android:layout_toRightOf="@id/gplus_btn"
             android:background="@drawable/test_signup_badge_rght"
-            android:elevation="@dimen/spacing_tiny_x"
             android:padding="@dimen/spacing_normal"
             android:text="@string/or_signup"
             android:textColor="@color/white"

@@ -4,11 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
@@ -24,6 +22,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.flaviofaria.kenburnsview.RandomTransitionGenerator;
+import com.github.jorgecastilloprz.FABProgressCircle;
+import com.github.jorgecastilloprz.listeners.FABProgressListener;
 import com.singh.sudhanshu.epaytest.R;
 import com.singh.sudhanshu.epaytest.api.ApiHandler;
 import com.singh.sudhanshu.epaytest.ui.widget.RoundImageView;
@@ -52,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
     FloatingActionButton mBtnFab;
     @BindView(R.id.login_logo)
     RoundImageView mImvLogo;
+    @BindView(R.id.fabProgressCircle)
+    FABProgressCircle mFabCircle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,7 +68,10 @@ public class LoginActivity extends AppCompatActivity {
             ButterKnife.bind(this);
             getSupportActionBar().hide();
 
+            //Load images
             Glide.with(this).load(R.drawable.login_one).diskCacheStrategy(DiskCacheStrategy.ALL).into(mImview);
+
+            //Init KenburnsImageview used as BG
             RandomTransitionGenerator generator = new RandomTransitionGenerator(3000, new AccelerateDecelerateInterpolator());
             mImview.setTransitionGenerator(generator);
         }
@@ -90,6 +95,7 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
+    //Login BUtton action
     @OnClick(R.id.login_btn_fab)
     void callAPI() {
         String email = mAcetLogin.getText().toString().trim();
@@ -103,13 +109,23 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        mBtnFab.setEnabled(false);
-
+//        mBtnFab.setEnabled(false);
+        mFabCircle.show();
         ApiHandler.fetchTokenAndSaveIfNull(this, new AppCallback() {
             @Override
             public void onSuccess(Object data) {
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    revealSuccessUI();
+
+                    //Animate the circle around FAB
+                    mFabCircle.beginFinalAnimation();
+                    mFabCircle.attachListener(new FABProgressListener() {
+                        @Override
+                        public void onFABProgressAnimationEnd() {
+                            revealSuccessUI();
+                        }
+                    });
+
+
                 } else {
                     launchDash();
                 }
@@ -145,10 +161,6 @@ public class LoginActivity extends AppCompatActivity {
     @SuppressLint("NewApi")
     void revealSuccessUI() {
 
-        //Change the UI of FAB
-        mBtnFab.setBackgroundTintList(ColorStateList.valueOf(ResourcesCompat.getColor(getResources(), R.color.green_500, null)));
-        mBtnFab.setImageResource(R.drawable.ic_done_white_24dp);
-
         //Set reveal clipping circle from the center of the target view
         int cx = mRevealView.getWidth() / 2;
         int cy = mRevealView.getHeight() / 2;
@@ -169,7 +181,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void run() {
                         launchDash();
                     }
-                }, 2000);
+                }, 1000);
             }
         });
 
