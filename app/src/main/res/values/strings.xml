@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EPayTest</string>
+    <string name="app_name">EPayTest Sud</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

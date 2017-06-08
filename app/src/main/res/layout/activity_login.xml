@@ -38,6 +38,12 @@
             app:rim_borderColor="@color/colorAccent"
             app:rim_borderWidth="2dp" />
 
+        <TextView
+            style="@style/TextViewStylable"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/app_name"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/font_big_x" />
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/login_id_acet"
