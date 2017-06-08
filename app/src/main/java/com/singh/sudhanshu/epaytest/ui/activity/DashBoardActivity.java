@@ -119,6 +119,7 @@ public class DashBoardActivity extends AppCompatActivity {
         dialog.addData(new AppCallback() {
             @Override
             public void onSuccess(Object data) {
+                mAdapter.clear(new ArrayList<Product>());
                 fetchTransactions();
                 fetchBalance();
             }
@@ -157,6 +158,13 @@ public class DashBoardActivity extends AppCompatActivity {
         void addALL(List<Product> list) {
             if (list != null) {
                 mList.addAll(list);
+                notifyDataSetChanged();
+            }
+        }
+
+        void clear(List<Product> list) {
+            if (list != null) {
+                mList.clear();
                 notifyDataSetChanged();
             }
         }

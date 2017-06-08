@@ -79,12 +79,18 @@ public class LoginActivity extends AppCompatActivity {
     @OnClick(R.id.login_btn_fab)
     void callAPI() {
         String email = mAcetLogin.getText().toString().trim();
+        Utils.hideKB(this, mAcetLogin);
+
         if (TextUtils.isEmpty(email)
                 || !Utils.isValidEmail(email, this)) {
             ToastUtil.showLongToast(this, R.string.error_msg_invalidemail);
+
+
             return;
         }
+
         mBtnFab.setEnabled(false);
+
         ApiHandler.fetchTokenAndSaveIfNull(this, new AppCallback() {
             @Override
             public void onSuccess(Object data) {
@@ -98,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Object data) {
-
+                mBtnFab.setEnabled(true);
             }
         });
     }
@@ -157,4 +163,6 @@ public class LoginActivity extends AppCompatActivity {
 
         ToastUtil.showSmallToast(this, R.string.msg_login_success);
     }
+
+
 }

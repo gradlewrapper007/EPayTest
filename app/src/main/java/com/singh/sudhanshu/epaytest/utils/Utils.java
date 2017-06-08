@@ -1,7 +1,10 @@
 package com.singh.sudhanshu.epaytest.utils;
 
 import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -87,4 +90,13 @@ public class Utils {
         return dateFormat.format(date);
     }
 
+    /**
+     * Hide KB
+     * @param view
+     */
+    public static void hideKB(Context ctx, View view) {
+        ((InputMethodManager) ctx.getSystemService(Context.INPUT_METHOD_SERVICE))
+                .hideSoftInputFromWindow(
+                        view.getWindowToken(), 0);
+    }
 }

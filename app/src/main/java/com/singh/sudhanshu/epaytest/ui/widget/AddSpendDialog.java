@@ -7,12 +7,9 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.renderscript.Double2;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatSpinner;
 import android.text.TextUtils;
@@ -138,6 +135,8 @@ public class AddSpendDialog extends android.support.v4.app.DialogFragment {
 
     @OnClick(R.id.dialog_spend_btn_submit)
     void success() {
+
+        Utils.hideKB(mContext, mAcetAmount);
 
         if (!validate()) {
             return;
