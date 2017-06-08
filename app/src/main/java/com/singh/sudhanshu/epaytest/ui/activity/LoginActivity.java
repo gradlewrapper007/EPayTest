@@ -16,6 +16,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
@@ -24,6 +26,7 @@ import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.flaviofaria.kenburnsview.RandomTransitionGenerator;
 import com.singh.sudhanshu.epaytest.R;
 import com.singh.sudhanshu.epaytest.api.ApiHandler;
+import com.singh.sudhanshu.epaytest.ui.widget.RoundImageView;
 import com.singh.sudhanshu.epaytest.utils.Constants;
 import com.singh.sudhanshu.epaytest.utils.PreferenceUtil;
 import com.singh.sudhanshu.epaytest.utils.ToastUtil;
@@ -47,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
     RelativeLayout mRevealView;
     @BindView(R.id.login_btn_fab)
     FloatingActionButton mBtnFab;
+    @BindView(R.id.login_logo)
+    RoundImageView mImvLogo;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -66,6 +71,15 @@ public class LoginActivity extends AppCompatActivity {
             mImview.setTransitionGenerator(generator);
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Animation expandIn = AnimationUtils.loadAnimation(this, R.anim.pop_in);
+        expandIn.setStartOffset(500);
+        mImvLogo.startAnimation(expandIn);
     }
 
     /**

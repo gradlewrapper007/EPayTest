@@ -24,7 +24,10 @@
             android:layout_width="@dimen/spacing_huge"
             android:layout_height="@dimen/spacing_huge"
             android:layout_margin="@dimen/spacing_tiny_x"
-            android:src="@drawable/elon_port" />
+            android:src="@drawable/me"
+            app:rim_border="true"
+            app:rim_borderColor="@color/colorAccent"
+            app:rim_borderWidth="2dp" />
 
         <TextView
             android:id="@+id/dash_user_name"
@@ -35,7 +38,7 @@
             android:layout_toEndOf="@id/dash_user_img"
             android:layout_toRightOf="@id/dash_user_img"
             android:gravity="center_vertical"
-            android:text="@string/hello_musky"
+            android:text="@string/hello_sud"
             android:textColor="@color/white"
             android:textSize="@dimen/font_normal"
             android:textStyle="italic"
