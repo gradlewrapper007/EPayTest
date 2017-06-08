@@ -62,28 +62,47 @@
     </RelativeLayout>
 
     <!--Headers LBL-->
-    <TextView
-        android:id="@+id/dash_list_header"
-        style="@style/TextViewStylable"
+    <RelativeLayout
+        android:id="@+id/dash_list_header_view"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/dash_header"
-        android:layout_centerHorizontal="true"
         android:background="@color/grey_400"
-        android:elevation="@dimen/spacing_tiny_x"
-        android:padding="@dimen/spacing_tiny_x"
-        android:text="@string/transactions_lbl"
-        android:textAllCaps="true"
-        android:textColor="@color/grey_700"
-        android:textSize="@dimen/font_normal"
-        tools:ignore="RtlHardcoded"
-        tools:targetApi="lollipop" />
+        android:padding="@dimen/spacing_tiny_x">
+
+        <ImageView
+            android:id="@+id/dash_hist_icon"
+            android:layout_width="@dimen/spacing_big_x"
+            android:layout_height="@dimen/spacing_big_x"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_history_white_24dp"
+            android:tint="@color/grey_700" />
+
+        <TextView
+            android:id="@+id/dash_list_header"
+            style="@style/TextViewStylable"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/spacing_tiny_x"
+            android:layout_marginStart="@dimen/spacing_tiny_x"
+            android:layout_toRightOf="@id/dash_hist_icon"
+            android:elevation="@dimen/spacing_tiny_x"
+
+            android:text="@string/transactions_lbl"
+            android:textAllCaps="true"
+            android:textColor="@color/grey_700"
+            android:textSize="@dimen/font_normal"
+            tools:ignore="RtlHardcoded"
+            tools:targetApi="lollipop" />
+
+    </RelativeLayout>
 
     <!--List-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/dash_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/dash_list_header" />
+        android:layout_below="@id/dash_list_header_view" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/dash_btn_fab"

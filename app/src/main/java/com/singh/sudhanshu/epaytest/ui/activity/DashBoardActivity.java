@@ -104,6 +104,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
     void setupRecycler() {
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        layoutManager.setReverseLayout(true);
         mRecyclerView.setLayoutManager(layoutManager);
         //For same size items
         mRecyclerView.setHasFixedSize(true);
