@@ -1,5 +1,6 @@
 package com.singh.sudhanshu.epaytest.ui.activity;
 
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -84,8 +85,9 @@ public class DashBoardActivity extends AppCompatActivity {
 
                 Balance balance = ((Balance) data);
                 mBalance = Double.parseDouble(balance.getBalance());
-                mTvBalance.setText(Utils.getCurrencySymbol(balance.getCurrency()) + " " + balance.getBalance());
-
+//                mTvBalance.setText(Utils.getCurrencySymbol(balance.getCurrency()) + " " + balance.getBalance());
+//                startCountAnimation((int) mBalance);
+                startCountAnimation((float) mBalance);
             }
 
             @Override
@@ -209,4 +211,19 @@ public class DashBoardActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Shjows a meter like animation on TextView
+     *
+     * @param balance
+     */
+    private void startCountAnimation(float balance) {
+        ValueAnimator animator = ValueAnimator.ofFloat(0, balance);
+        animator.setDuration(600);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            public void onAnimationUpdate(ValueAnimator animation) {
+                mTvBalance.setText(String.format("%.2f", (float) animation.getAnimatedValue()));
+            }
+        });
+        animator.start();
+    }
 }
