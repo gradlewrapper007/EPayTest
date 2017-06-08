@@ -98,6 +98,11 @@ public class LoginActivity extends AppCompatActivity {
     //Login BUtton action
     @OnClick(R.id.login_btn_fab)
     void callAPI() {
+        if (!Utils.isConnected(this)) {
+            ToastUtil.showLongToast(this, R.string.error_msg_no_network);
+            return;
+        }
+
         String email = mAcetLogin.getText().toString().trim();
         Utils.hideKB(this, mAcetLogin);
 

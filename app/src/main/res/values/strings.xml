@@ -1,19 +1,7 @@
 <resources>
     <string name="app_name">e-Transact Sud</string>
 
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-
+    <string name="error_msg_no_network">Uh Oh! There is no internet!</string>
     <string name="error_msg_logout">Uh Oh! Invalid session, Please Login Again!</string>
     <string name="error_msg_invalidemail">Please enter a valid email address!</string>
     <string name="error_msg_coming_soon">Feature coming Soon!</string>
@@ -26,6 +14,7 @@
     <string name="hello_sud">Hello, Sudhanshu!</string>
     <string name="dash">-</string>
     <string name="transactions_lbl">Your transactions</string>
+    <string name="internet_funny_quote">A man sans internet,\nis a man living a happy life!\n\n(pun intended)</string>
     <array name="currencyArray">
         <item>Currency</item>
         <item>INR ₹</item>

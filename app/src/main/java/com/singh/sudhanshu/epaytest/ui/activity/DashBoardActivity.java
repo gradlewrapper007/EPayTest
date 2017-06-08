@@ -53,10 +53,19 @@ public class DashBoardActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         getSupportActionBar().hide();
         setupRecycler();
-        //fetch balance
-        fetchBalance();
-        //fetch the list
-        fetchTransactions();
+
+        if (!Utils.isConnected(this)) {
+            ToastUtil.showLongToast(this, R.string.error_msg_no_network);
+            findViewById(R.id.dash_bo_net).setVisibility(View.VISIBLE);
+        } else {
+            findViewById(R.id.dash_bo_net).setVisibility(View.GONE);
+            //fetch balance
+            fetchBalance();
+            //fetch the list
+            fetchTransactions();
+        }
+
+
     }
 
     /**
@@ -124,10 +133,15 @@ public class DashBoardActivity extends AppCompatActivity {
     }
 
     /**
-     * OPens the Spend dialog
+     * Opens the Spend dialog
      */
     @OnClick(R.id.dash_btn_fab)
     void fabClick() {
+
+        if (!Utils.isConnected(this)) {
+            ToastUtil.showLongToast(this, R.string.error_msg_no_network);
+            return;
+        }
 
         AddSpendDialog dialog = new AddSpendDialog();
         dialog.addData(new AppCallback() {

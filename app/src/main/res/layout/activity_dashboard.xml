@@ -71,7 +71,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/dash_header"
         android:background="@color/grey_400"
-        android:padding="@dimen/spacing_tiny_x">
+        android:elevation="@dimen/spacing_tiny_x"
+        android:padding="@dimen/spacing_tiny_x"
+        tools:targetApi="lollipop">
 
         <ImageView
             android:id="@+id/dash_hist_icon"
@@ -89,14 +91,13 @@
             android:layout_marginLeft="@dimen/spacing_tiny_x"
             android:layout_marginStart="@dimen/spacing_tiny_x"
             android:layout_toRightOf="@id/dash_hist_icon"
-            android:elevation="@dimen/spacing_tiny_x"
+
 
             android:text="@string/transactions_lbl"
             android:textAllCaps="true"
             android:textColor="@color/grey_700"
             android:textSize="@dimen/font_normal"
-            tools:ignore="RtlHardcoded"
-            tools:targetApi="lollipop" />
+            tools:ignore="RtlHardcoded" />
 
     </RelativeLayout>
 
@@ -106,6 +107,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/dash_list_header_view" />
+
+    <TextView
+        android:id="@+id/dash_bo_net"
+        style="@style/TextViewStylable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/internet_funny_quote"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_small_x"
+        android:visibility="gone" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/dash_btn_fab"
