@@ -23,7 +23,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/spacing_huge"
         android:orientation="vertical"
         android:padding="@dimen/spacing_normal">
 
@@ -49,7 +49,7 @@
             android:background="@drawable/test_shape_acet"
             android:cursorVisible="false"
             android:hint="@string/hint_your_email"
-            android:imeOptions="actionNext"
+            android:imeOptions="actionDone"
             android:inputType="textEmailAddress"
             android:padding="@dimen/spacing_tiny_x">
 
@@ -61,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spacing_huge"
             android:src="@drawable/ic_arrow_forward_white_24dp"
             app:fabSize="normal" />
 
@@ -106,7 +107,7 @@
             android:layout_toRightOf="@id/gplus_btn"
             android:background="@drawable/test_signup_badge_rght"
             android:elevation="@dimen/spacing_tiny_x"
-            android:padding="@dimen/spacing_big_x"
+            android:padding="@dimen/spacing_normal"
             android:text="@string/or_signup"
             android:textColor="@color/white"
             android:textSize="@dimen/font_big"
